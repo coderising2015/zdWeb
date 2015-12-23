@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+    <hibernate-mapping>
+  <!--    private int id;//用户id
+     private String u_name;//用户名
+     private String pwd;//用户密码
+     private String name;//姓名
+     private String state;//状态 00A  00X 
+     private char sex;//性别
+     private long phoneNumber;//手机号
+     private long qqNumber;//qq号
+     private String email;//邮箱
+     //角色id
+     //部门id
+     //中心id -->
+      <class table="T_USER" name="com.zd.model.User">
+        <id name="id" column="userid" type="int">         
+        </id>
+        <property name="username" column="username" type="string"></property>
+        <property name="password" column="password" type="string"></property>
+  
+       </class>
+    </hibernate-mapping>

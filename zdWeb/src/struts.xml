@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<constant name="struts.objectFactory" value="spring"></constant>
+	<package name="my" extends="struts-default" namespace="/">
+	<!-- 定义一个拦截器 -->
+		<interceptors>
+			<interceptor name="security"
+				class="">
+			</interceptor>
+			<!-- 拦截器栈 -->
+			<interceptor-stack name="mydefault">
+				<interceptor-ref name="defaultStack" />
+				<interceptor-ref name="security" />
+			</interceptor-stack>
+		</interceptors>
+
+		<!-- 定义全局Result -->
+		<global-results>
+			<!-- 当返回login视图名时，转入/login.jsp页面 -->
+			<result name="login">login.jsp</result>
+		</global-results>
+		<action name="user" class="com.zd.action.UserAction"
+			method="login">
+			<result name="true">/index.jsp</result>
+			<result name="false">/index.jsp</result>
+		</action>
+	</package>
+	<package name="ajax_json" extends="json-default">
+         <action name="class1" class="com.zd.action.ClassesAction">
+            <result name="success" type="json"/>
+         </action>     
+        <action name="jsonTest" class="com.zd.action.SystemAction">
+               <result type="json" name="success">
+                <param name="root">result</param>
+            </result>
+         </action>   
+    </package>
+
+</struts>
+
